@@ -41,7 +41,10 @@
       "typedRoutes": true
     },
     "extra": {
-      "router": {}
+      "router": {},
+      "eas": {
+        "projectId": "bdd68595-70d1-40e8-a71d-f734df28796c"
+      }
     },
     "owner": "veerrr.rj"
   }
