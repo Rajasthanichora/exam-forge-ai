@@ -6,6 +6,19 @@ ExamForge AI is a cross-platform mobile application built with **React Native (E
 
 ---
 
+## 📥 Download
+
+### 📱 Android APK (v1.0.0)
+[![Download APK](https://img.shields.io/badge/Download-APK-blue?style=for-the-badge&logo=android)](https://github.com/Rajasthanichora/exam-forge-ai/releases/latest/download/EXAM-FORGE-AI.apk)
+
+👉 **[Download Latest APK](https://github.com/Rajasthanichora/exam-forge-ai/releases/latest/download/EXAM-FORGE-AI.apk)**
+
+### 🌐 Web Version
+ExamForge AI also has a **web version** built for desktop browsers:
+👉 **[exam-forge-web](https://github.com/Rajasthanichora/exam-forge)**
+
+---
+
 ## ✨ Features
 
 ### 📝 Smart Question Generation
@@ -81,7 +94,7 @@ ExamForge AI is a cross-platform mobile application built with **React Native (E
 ### Installation
 
 ```bash
-git clone https://github.com/Rajasthanichora/test-gen-app-.git
+git clone https://github.com/Rajasthanichora/exam-forge-ai.git
 cd exam-forge-mobile
 npm install
 npx expo start
@@ -217,7 +230,7 @@ npx tsc --noEmit              # Type check
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-[Open an issue](https://github.com/Rajasthanichora/test-gen-app-/issues)
+[Open an issue](https://github.com/Rajasthanichora/exam-forge-ai/issues)
 
 ---
 
