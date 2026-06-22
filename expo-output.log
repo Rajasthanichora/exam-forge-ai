@@ -1,0 +1,7 @@
+Starting project at E:\exam-forge-ai-main
+Starting Metro Bundler
+
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+CommandError: Input is required, but 'npx expo' is in non-interactive mode.
+Required input:
+> The package @expo/ngrok@^4.1.0 is required to use tunnels, would you like to install it globally?

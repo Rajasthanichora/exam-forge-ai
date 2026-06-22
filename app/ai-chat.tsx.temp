@@ -1,0 +1,82 @@
+﻿  // Handle test selection from picker - robust with fallbacks
+  const handleSelectTest = useCallback((test: TestResult) => {
+    // Robust section lookup: try test.config.sectionId, then selectedSectionId, then search all sections
+    let section = allSections.find(s => s.id === test.config?.sectionId);
+    if (!section && selectedSectionId) {
+      section = allSections.find(s => s.id === selectedSectionId);
+    }
+    if (!section) {
+      // Search all sections for one that contains this test
+      section = allSections.find(s => s.testResults?.some(t => t.id === test.id));
+    }
+    if (!section) {
+      Alert.alert('Error', 'Could not find the section for this test. Please try again.');
+      return;
+    }
+
+    const testContext = {
+      sectionId: section.id,
+      sectionName: section.name,
+      testId: test.id,
+      testName: test.name,
+    };
+
+    // Build a comprehensive system message with full test data
+    const questionsDetail = test.questions.map((q, i) => {
+      const userAnswer = test.answers[q.id];
+      const isCorrect = userAnswer === q.correctAnswer;
+      return `Q${i + 1}: ${q.question}
+Options: ${q.options.map((o, oi) => `${String.fromCharCode(65 + oi)}. ${o}`).join(' | ')}
+Correct Answer: ${String.fromCharCode(65 + q.correctAnswer)}
+User Answer: ${userAnswer !== undefined ? String.fromCharCode(65 + userAnswer) : 'Not answered'}
+Result: ${isCorrect ? 'Correct' : 'Incorrect'}
+Topic: ${q.topic || 'General'}
+Explanation: ${q.explanation || 'N/A'}`;
+    }).join('\n\n');
+
+    const topicBreakdown = [...new Set((test.questions || []).map(q => q.topic).filter(Boolean))].join(', ');
+
+    const contextMsg: ConversationMessage = {
+      id: generateUniqueId('msg'),
+      role: 'system',
+      content: `📊 Test Loaded: "${test.name}"
+━━━━━━━━━━━━━━━━━━━━━━━
+Section: ${section.name}
+Date: ${test.date}
+Score: ${test.score}/${test.totalQuestions} (${test.totalQuestions > 0 ? Math.round((test.score / test.totalQuestions) * 100) : 0}%)
+Topics: ${topicBreakdown || 'General'}
+Questions: ${test.questions.length}
+━━━━━━━━━━━━━━━━━━━━━━━
+
+What would you like to know about this test?`,
+      timestamp: new Date().toISOString(),
+    };
+
+    const updatedMessages = [...messages, contextMsg];
+    setMessages(updatedMessages);
+    setShowTestPicker(false);
+    setAttachedTest(testContext);
+    // Reset picker drill-down state
+    setSelectedGroupId(null);
+    setSelectedSectionId(null);
+    setSelectedSectionTests([]);
+
+    if (activeConversationId) {
+      const updatedConvs = conversations.map(c => {
+        if (c.id === activeConversationId) {
+          return {
+            ...c,
+            messages: updatedMessages,
+            activeTestContext: testContext,
+            updatedAt: new Date().toISOString(),
+          };
+        }
+        return c;
+      });
+      saveConversations(updatedConvs);
+    }
+  }, [allSections, selectedSectionId, messages, activeConversationId, conversations, saveConversations]);
+
+  const getSectionsForGroup = (groupId: string) => {
+    return allSections.filter(s => s.groupId === groupId);
+  };
