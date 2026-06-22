@@ -1,5 +1,3 @@
-﻿# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
 # dependencies
 node_modules/
 
@@ -43,10 +41,35 @@ yarn-error.*
 # Agent QA
 AgentQA/
 
-# Build artifacts and large temp files
+# --- Files not needed for APK build ---
+
+# Temp / test / log files
 bundle-test.txt
 temp_ai_chat.txt
 expo-output.log
-*.ps1
-fix_changes.js
 clean_settings.py
+fix_changes.js
+
+# Debug powershell scripts
+_debug.ps1
+_fix_header.ps1
+_fix_header2.ps1
+_fix_testresults.ps1
+
+# Duplicate assets
+assets/examforge 1.png
+assets/examforge 2.png
+
+# Codex agent skills & graph (not used in app code)
+.agents/
+.codex/
+.graphify/
+docs/
+
+# Backup and temp source files
+components/SectionHistory.tsx.bak
+app/ai-chat.tsx.temp
+
+# Docs/RM (not needed for builds)
+README.md
+AGENTS.md
