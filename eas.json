@@ -1,27 +1,25 @@
 {
-    "cli":  {
-                "version":  "\u003e= 14.0.0",
-                "appVersionSource":  "local"
-            },
-    "build":  {
-                  "development":  {
-                                      "developmentClient":  true,
-                                      "distribution":  "internal"
-                                  },
-                  "preview":  {
-                                  "android":  {
-                                                  "buildType":  "apk"
-                                              }
-                              },
-                  "production":  {
-                                     "android":  {
-                                                     "buildType":  "apk"
-                                                 }
-                                 }
-              },
-    "submit":  {
-                   "production":  {
-
-                                  }
-               }
+  "cli": {
+    "version": ">= 14.0.0",
+    "appVersionSource": "local"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
 }
