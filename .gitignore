@@ -71,5 +71,6 @@ components/SectionHistory.tsx.bak
 app/ai-chat.tsx.temp
 
 # Docs/RM (not needed for builds)
-README.md
-AGENTS.md
+
+# Release APK (pushed via GitHub Releases only)
+ExamForge AI v1.2.0.apk
