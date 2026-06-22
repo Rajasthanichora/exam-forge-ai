@@ -43,3 +43,10 @@ yarn-error.*
 # Agent QA
 AgentQA/
 
+# Build artifacts and large temp files
+bundle-test.txt
+temp_ai_chat.txt
+expo-output.log
+*.ps1
+fix_changes.js
+clean_settings.py
