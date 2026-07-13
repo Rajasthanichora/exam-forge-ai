@@ -1,0 +1,44 @@
+﻿{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "C:\\Users\\Ravib", "E:\\"],
+      "enabled": true
+    },
+    "github": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "enabled": true,
+      "env": {
+        "GITHUB_TOKEN": "GITHUB_TOKEN_PLACEHOLDER"
+      }
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"],
+      "enabled": true
+    },
+    "context-governor": {
+      "type": "local",
+      "command": ["npx", "-y", "-p", "@flyingrobots/graft", "graft"],
+      "enabled": true
+    },
+    "supabase": {
+      "type": "local",
+      "command": ["node", "C:\\Users\\Ravib\\AppData\\Roaming\\npm\\node_modules\\supabase-mcp\\dist\\esm\\claude-entry.js"],
+      "enabled": true,
+      "env": {
+        "SUPABASE_URL": "https://supabase.example.com",
+        "SUPABASE_ANON_KEY": "placeholder",
+        "SUPABASE_SERVICE_ROLE_KEY": "placeholder",
+        "MCP_API_KEY": "placeholder"
+      }
+    }
+  }
+}
