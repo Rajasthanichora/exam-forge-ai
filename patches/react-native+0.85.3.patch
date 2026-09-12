@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-native/ReactAndroid/hermes-engine/build.gradle.kts b/node_modules/react-native/ReactAndroid/hermes-engine/build.gradle.kts
+index fc96af2..d5db20c 100644
+--- a/node_modules/react-native/ReactAndroid/hermes-engine/build.gradle.kts
++++ b/node_modules/react-native/ReactAndroid/hermes-engine/build.gradle.kts
+@@ -439,6 +439,7 @@ android {
+   }
+ 
+   prefab { create("hermesvm") { headers = prefabHeadersDir.absolutePath } }
++  prefab { create("libhermes") { headers = prefabHeadersDir.absolutePath } }
+ }
+ 
+ afterEvaluate {
