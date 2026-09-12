@@ -14,6 +14,8 @@
     <a href="#getting-started">Getting Started</a>
     ·
     <a href="#tech-stack">Tech Stack</a>
+    ·
+    <a href="#changelog">Changelog</a>
   </p>
   
   <p align="center">
@@ -96,6 +98,15 @@ Generate intelligent, customized tests from your study materials with support fo
 - Ideal for educators preparing specific question banks
 - Works offline - no API key required
 
+### Subject & Electrician Mode
+- **Subject-wise Quiz Database** - Pre-built question banks for different subjects
+- **Electrician Mode** - Specialized quiz mode for electrician trade questions
+- **N8N Integration** - Workflow automation for custom test pipelines
+
+### Safe Area & Notch Support
+- Proper safe area handling for devices with notches and dynamic islands
+- Content stays visible below notch/status bar on all devices
+
 ---
 
 ## Screenshots
@@ -161,18 +172,18 @@ Generate intelligent, customized tests from your study materials with support fo
 ### Prerequisites
 - Node.js (v18 or higher)
 - npm or yarn
-- Expo CLI (npm install -g expo-cli)
+- Expo CLI (`npm install -g expo-cli`)
 - Android Studio / Xcode (for native builds)
 - AI Provider API Key (OpenRouter, Gemini, or Mistral)
 
 ### Installation
 
-`ash
+```bash
 git clone https://github.com/Rajasthanichora/exam-forge-ai.git
 cd exam-forge-ai
 npm install
 npx expo start
-`
+```
 
 ### Configuration
 1. Open the app and navigate to **Settings** > **API Settings**
@@ -185,11 +196,11 @@ npx expo start
 
 ### Build for Production
 
-`ash
+```bash
 npx eas build --platform android --profile production
 npx eas build --platform ios --profile production
 npx expo export --platform web
-`
+```
 
 ---
 
@@ -209,21 +220,24 @@ npx expo export --platform web
 
 ### Project Structure
 
-`
-axam/
+```
+exam-forge-ai/
   app/                    Expo Router screens
-    _layout.tsx           Root layout + navigation
+    _layout.tsx           Root layout + navigation + safe area
     index.tsx             Home screen (quiz, results, sections)
     settings.tsx          App settings + AI config
     api-settings.tsx      AI provider configuration
     ai-chat.tsx           AI chat assistant
+    electrician.tsx       Electrician trade quiz mode
+    subject.tsx           Subject-wise quiz database
+    n8n.tsx               N8N workflow integration
     clear-test-history.tsx Clear test history
     data-management.tsx   Backup & restore
     results-history.tsx   Past test results
   components/             Reusable UI components
     ShuffleScreen.tsx     Question & option shuffler
     FileUpload.tsx        Document upload handler
-    Header.tsx            Custom header component
+    Header.tsx            Custom header with safe area
     ManualTestGen.tsx     Manual test creation
     QuizInterface.tsx     Interactive quiz component
     SavedDocuments.tsx    Saved document manager
@@ -237,15 +251,45 @@ axam/
     types.ts              TypeScript type definitions
     storage.ts            AsyncStorage wrapper
     section-store.ts      Section data management
+    subject-store.ts      Subject data management
     file-handler.ts       Document parsing utilities
     score-report.ts       Score report generation
     theme.tsx             Dark theme system
     backup.ts             Data backup & restore
     logs.ts               App event logs
     utils.ts              Shared utility functions
+    electrician-db.ts     Electrician question database
+    subject-db.ts         Subject question database
   assets/                 Static assets (icons, splash)
   screenshots/            App screenshots
-`
+```
+
+---
+
+## Changelog
+
+### v1.2.0 (Latest)
+- **Safe Area Fix** - Proper notch/dynamic island support on Android devices
+- **Subject Mode** - Pre-built question banks for different subjects
+- **Electrician Mode** - Specialized quiz mode for electrician trade questions
+- **N8N Integration** - Workflow automation for custom test pipelines
+- **Enhanced Quiz Interface** - Improved UI/UX for quiz experience
+- **Lockfile Fix** - Regenerated with npm 10 for EAS build compatibility
+- **Dependency Updates** - React Native 0.85.3, Expo SDK 56, Reanimated 4.4.1
+
+### v1.1.0
+- AI Chat Assistant with multi-provider support
+- Section & Group management system
+- Performance analytics and score reports
+- Data backup & restore functionality
+- Application logs viewer
+
+### v1.0.0
+- Initial release with AI-powered test generation
+- Support for OpenRouter, Gemini, and Mistral AI providers
+- Interactive quiz interface with real-time scoring
+- Document upload and processing
+- Dark theme with full customization
 
 ---
 
