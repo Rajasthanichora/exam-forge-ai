@@ -17,6 +17,7 @@
       "bundleIdentifier": "com.examforge.mobile"
     },
     "android": {
+      "hermesEnabled": true,
       "adaptiveIcon": {
         "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/android-icon-foreground.png",
