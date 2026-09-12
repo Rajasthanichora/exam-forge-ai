@@ -43,6 +43,6 @@
   "private": true,
   "overrides": {
     "react-native-worklets": "0.8.3",
-    "react-native-reanimated": "4.6.0"
+    "react-native-reanimated": "3.17.5"
   }
 }
