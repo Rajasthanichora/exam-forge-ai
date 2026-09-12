@@ -6,4 +6,8 @@ const config = getDefaultConfig(__dirname);
 config.resolver.assetExts.push('ttf');
 config.resolver.sourceExts.push('ttf');
 
+// WASM support for expo-sqlite web worker
+config.resolver.assetExts.push('wasm');
+config.resolver.sourceExts.push('wasm');
+
 module.exports = config;
